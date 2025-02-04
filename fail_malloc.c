@@ -21,6 +21,20 @@ void	open_logfile(void)
 	}
 }
 
+static void	signal_handler(int __attribute__((unused)) signum)
+{
+	if (fd != -1)
+		dprintf(fd, "SIGSEGV! Segmentation Fault detected!\n");
+	exit(1);
+}
+
+__attribute__((constructor))
+
+void	check_sigsegv(void)
+{
+	signal(SIGSEGV, signal_handler);
+}
+
 void*	fail_malloc(size_t n, char* file, const char* func, int line)
 {
 	int x = arc4random_uniform(2147483647) % 100;
