@@ -37,9 +37,12 @@ void	check_sigsegv(void)
 
 void*	fail_malloc(size_t n, char* file, const char* func, int line)
 {
-	int x = arc4random_uniform(2147483647) % 100;
+	static int x;
 
-	if (x < 50)
+	if (!x)
+		srandom(time(NULL));
+	x =	rand() % 100 + 1;
+	if (x <= PR)
 	{
 		if (fd != -1)
 		{
@@ -47,6 +50,5 @@ void*	fail_malloc(size_t n, char* file, const char* func, int line)
 		}
 		return (NULL);
 	}
-
 	return (malloc(n));
 }

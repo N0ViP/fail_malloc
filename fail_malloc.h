@@ -7,8 +7,9 @@
 #include <stdlib.h>	//malloc
 #include <stdio.h>	//dprintf
 #include <fcntl.h>	//open
+#include <time.h>	//time
 
-
+#define PR 10
 #define	malloc(n)	fail_malloc((size_t) (n), __FILE__, __func__, __LINE__)
 
 void	open_logfile(void);
