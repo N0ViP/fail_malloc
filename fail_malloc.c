@@ -24,7 +24,9 @@ void	open_logfile(void)
 static void	signal_handler(int __attribute__((unused)) signum)
 {
 	if (fd != -1)
+	{
 		dprintf(fd, "SIGSEGV! Segmentation Fault detected!\n");
+	}
 	exit(1);
 }
 
@@ -40,13 +42,15 @@ void*	fail_malloc(size_t n, char* file, const char* func, int line)
 	static int x;
 
 	if (!x)
+	{
 		srandom(time(NULL));
+	}
 	x =	rand() % 100 + 1;
 	if (x <= PR)
 	{
 		if (fd != -1)
 		{
-			dprintf(fd, "Malloc failed at file %s in function %s in line %d\n", file, func, line);
+			dprintf(fd, "NORMAL! Malloc failed at file %s in function %s in line %d\n", file, func, line);
 		}
 		return (NULL);
 	}
