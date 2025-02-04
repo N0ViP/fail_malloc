@@ -3,6 +3,7 @@
 `fail_malloc` is a custom implementation of the `malloc` function that simulates memory allocation failure based on a random chance. It logs the failure details to a file and returns `NULL` when the allocation fails.
 
 ## Features
+
 - Simulates memory allocation failures with a 50% chance.
 - Logs the failure with details about the source file, function name, and line number where the failure occurred.
 - Allows integration with your code by replacing `malloc` with `fail_malloc`.
@@ -16,12 +17,18 @@ To use `fail_malloc`, simply include the `fail_malloc.h` header and replace your
 ```c
 #include "fail_malloc.h"
 
-// Example usage
-int* arr = malloc(sizeof(int) * 10);
-if (arr == NULL) {
-    // Handle allocation failure
-    printf("Memory allocation failed\n");
+int main()
+{
+	char *res = malloc(100);
+	if (!res)
+	{
+		perror("Malloc failed\n");
+		return (1);
+	}
+
+	return (0);
 }
+
 ```
 
 
@@ -31,7 +38,13 @@ if (arr == NULL) {
 2. It generates a random number and, if the number is below 50, it simulates a failure by writing a message to the log file and returning NULL.
 3. Otherwise, it performs a normal memory allocation using malloc.
 
-##### Compilation:
+
+##### Example Log Entry
+
+Malloc failed at file main.c in function main in line 5
+
+###### Compilation:
+
 ```bash
 gcc -o your_program your_program.c fail_malloc.c
 ```
