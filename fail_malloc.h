@@ -1,20 +1,16 @@
-#include <sys/stat.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
-#include <signal.h>
-#include <time.h>
-#include <fcntl.h>
-
 #ifndef FAIL_MALLOC_H
 #define FAIL_MALLOC_H
 
-void* fail_malloc(size_t n, char* file, const char* func, int line);
+#include <sys/random.h>	//arc4random
+#include <unistd.h>	//close, dup2
+#include <stdlib.h>	//malloc
+#include <stdio.h>	//dprintf
+#include <fcntl.h>	//open
 
-#ifndef FAIL_MALLOC
+
 #define malloc(n) fail_malloc((size_t) (n), __FILE__, __func__, __LINE__)
-#endif
 
+void	open_logfile(void);
+void*	fail_malloc(size_t n, char* file, const char* func, int line);
 
 #endif

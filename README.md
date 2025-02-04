@@ -46,6 +46,7 @@ Malloc failed at file main.c in function main in line 5
 ###### Compilation:
 
 ```bash
-gcc -o your_program your_program.c fail_malloc.c
+$ gcc -o program program.c fail_malloc.c
+$ while true; do ./program; tail -n 3 fail_malloc.log; done
 ```
 
