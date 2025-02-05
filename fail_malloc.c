@@ -22,9 +22,9 @@ void	open_logfile(void)
 
 static void	signal_handler(int __attribute__((unused)) signum)
 {
+	system("echo '\\a'");
 	if (fd != -1)
 	{
-		system("echo '\\a'");
 		dprintf(fd, "SIGSEGV! Segmentation Fault detected!\n");
 	}
 	exit(1);
