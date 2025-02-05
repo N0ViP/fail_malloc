@@ -24,6 +24,7 @@ static void	signal_handler(int __attribute__((unused)) signum)
 {
 	if (fd != -1)
 	{
+		system("echo '\\a'");
 		dprintf(fd, "SIGSEGV! Segmentation Fault detected!\n");
 	}
 	exit(1);

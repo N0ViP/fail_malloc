@@ -2,10 +2,9 @@
 #define FAIL_MALLOC_H
 
 #include <sys/random.h>	//arc4random
-#include <sys/wait.h>	//wait
 #include <unistd.h>	//close, dup2
 #include <signal.h>	//signal
-#include <stdlib.h>	//malloc
+#include <stdlib.h>	//malloc, system
 #include <stdio.h>	//dprintf
 #include <fcntl.h>	//open
 #include <time.h>	//time
