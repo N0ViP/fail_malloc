@@ -1,3 +1,5 @@
+[![Last Commit](https://img.shields.io/github/last-commit/N0ViP/fail_malloc)]()
+
 # Fail Malloc
 
 ## Description
