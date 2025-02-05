@@ -4,7 +4,7 @@
 #include <sys/random.h>	//arc4random
 #include <unistd.h>	//close, dup2
 #include <signal.h>	//signal
-#include <stdlib.h>	//malloc, system
+#include <stdlib.h>	//malloc
 #include <stdio.h>	//dprintf
 #include <fcntl.h>	//open
 #include <time.h>	//time
